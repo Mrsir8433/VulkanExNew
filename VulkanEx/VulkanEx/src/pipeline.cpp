@@ -79,7 +79,18 @@ namespace osc {
 		viewportInfo.pViewports = &configInfo.viewport;
 		viewportInfo.scissorCount = 1;
 		viewportInfo.pScissors = &configInfo.scissor;
-		
+
+		VkPipelineColorBlendStateCreateInfo colorBlendInfo{};
+		colorBlendInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO;
+		colorBlendInfo.logicOpEnable = VK_FALSE;
+		colorBlendInfo.logicOp = VK_LOGIC_OP_COPY;  // Optional
+		colorBlendInfo.attachmentCount = 1;
+		colorBlendInfo.pAttachments = &configInfo.colorBlendAttachment;
+		colorBlendInfo.blendConstants[0] = 0.0f;  // Optional
+		colorBlendInfo.blendConstants[1] = 0.0f;  // Optional
+		colorBlendInfo.blendConstants[2] = 0.0f;  // Optional
+		colorBlendInfo.blendConstants[3] = 0.0f;  // Optional
+
 
 		VkGraphicsPipelineCreateInfo pipelineInfo{};
 		pipelineInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
@@ -90,7 +101,7 @@ namespace osc {
 		pipelineInfo.pViewportState = &viewportInfo;
 		pipelineInfo.pRasterizationState = &configInfo.rasterizationInfo;
 		pipelineInfo.pMultisampleState = &configInfo.multisampleInfo;
-		pipelineInfo.pColorBlendState = &configInfo.colorBlendInfo;
+		pipelineInfo.pColorBlendState = &colorBlendInfo;
 		pipelineInfo.pDynamicState = nullptr;  // Optional
 		pipelineInfo.pDepthStencilState = &configInfo.depthStencilInfo;
 
@@ -111,11 +122,8 @@ namespace osc {
 			throw std::runtime_error("failed to create graphics pipeline!");
 		}
 
-		vkDestroyShaderModule(device.device(), fragShaderModule, nullptr);
-		vkDestroyShaderModule(device.device(), vertShaderModule, nullptr);
-		fragShaderModule = VK_NULL_HANDLE;
-		vertShaderModule = VK_NULL_HANDLE;
-	
+		
+
 	}
 
 	void OSCpipeline::createShaderModule(const std::vector<char>& code, VkShaderModule* shaderModule) {
@@ -128,6 +136,13 @@ namespace osc {
 			throw std::runtime_error("Shader Module Creation Failed");
 		}
 	}
+
+	void OSCpipeline::bind(VkCommandBuffer commandBuffer) {
+		vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipeline);
+	}
+
+
+
 	PipelineConfigInfo OSCpipeline::defaultPipelineConfigInfo(uint16_t width, uint16_t height) {
 		PipelineConfigInfo configInfo{};
 
@@ -145,7 +160,7 @@ namespace osc {
 		configInfo.scissor.offset = { 0, 0 };
 		configInfo.scissor.extent = { width, height };
 
-		
+
 
 		configInfo.rasterizationInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;
 		configInfo.rasterizationInfo.depthClampEnable = VK_FALSE;
@@ -177,16 +192,6 @@ namespace osc {
 		configInfo.colorBlendAttachment.srcAlphaBlendFactor = VK_BLEND_FACTOR_ONE;   // Optional
 		configInfo.colorBlendAttachment.dstAlphaBlendFactor = VK_BLEND_FACTOR_ZERO;  // Optional
 		configInfo.colorBlendAttachment.alphaBlendOp = VK_BLEND_OP_ADD;              // Optional
-
-		configInfo.colorBlendInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO;
-		configInfo.colorBlendInfo.logicOpEnable = VK_FALSE;
-		configInfo.colorBlendInfo.logicOp = VK_LOGIC_OP_COPY;  // Optional
-		configInfo.colorBlendInfo.attachmentCount = 1;
-		configInfo.colorBlendInfo.pAttachments = &configInfo.colorBlendAttachment;
-		configInfo.colorBlendInfo.blendConstants[0] = 0.0f;  // Optional
-		configInfo.colorBlendInfo.blendConstants[1] = 0.0f;  // Optional
-		configInfo.colorBlendInfo.blendConstants[2] = 0.0f;  // Optional
-		configInfo.colorBlendInfo.blendConstants[3] = 0.0f;  // Optional
 
 		configInfo.depthStencilInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
 		configInfo.depthStencilInfo.depthTestEnable = VK_TRUE;

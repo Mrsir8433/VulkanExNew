@@ -35,6 +35,7 @@ namespace osc {
 		OSCpipeline(const OSCpipeline&) = delete;
 		void operator=(const OSCpipeline&) = delete;
 
+		void bind(VkCommandBuffer commandBuffer);
 		static PipelineConfigInfo defaultPipelineConfigInfo(uint16_t width, uint16_t height);
 
 
