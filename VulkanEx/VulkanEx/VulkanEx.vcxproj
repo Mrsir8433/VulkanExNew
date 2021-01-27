@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d867d73b-96b8-46fb-a938-550a520202f3}</ProjectGuid>
+    <ProjectGuid>{58629910-57b6-44a1-a43d-bf5dcbe74081}</ProjectGuid>
     <RootNamespace>VulkanEx</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -88,14 +88,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\include;C:\VulkanSDK\1.2.162.1\Include;C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glm-0.9.9.8;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\lib-vc2019;C:\VulkanSDK\1.2.162.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -106,16 +102,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\include;C:\VulkanSDK\1.2.162.1\Include;C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glm-0.9.9.8;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\lib-vc2019;C:\VulkanSDK\1.2.162.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,14 +116,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\include;C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glm-0.9.9.8;C:\VulkanSDK\1.2.162.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\lib-vc2019;C:\VulkanSDK\1.2.162.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,38 +130,28 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\include;C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glm-0.9.9.8;C:\VulkanSDK\1.2.162.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\MrSir\Documents\Visual Studio 2019\Libraries\glfw-3.3.2.bin.WIN64\lib-vc2019;C:\VulkanSDK\1.2.162.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="app.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="device.cpp" />
-    <ClCompile Include="pipeline.cpp" />
-    <ClCompile Include="SwapChain.cpp" />
-    <ClCompile Include="window.cpp" />
+    <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\device.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\pipeline.cpp" />
+    <ClCompile Include="src\SwapChain.cpp" />
+    <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app.hpp" />
-    <ClInclude Include="device.hpp" />
-    <ClInclude Include="pipeline.hpp" />
-    <ClInclude Include="SwapChain.hpp" />
-    <ClInclude Include="window.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="simple_shader.frag" />
-    <None Include="simple_shader.frag.spv" />
-    <None Include="simple_shader.vert" />
-    <None Include="simple_shader.vert.spv" />
+    <ClInclude Include="src\app.hpp" />
+    <ClInclude Include="src\device.hpp" />
+    <ClInclude Include="src\pipeline.hpp" />
+    <ClInclude Include="src\SwapChain.hpp" />
+    <ClInclude Include="src\window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,54 +15,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="src\app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="window.cpp">
+    <ClCompile Include="src\device.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app.cpp">
+    <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pipeline.cpp">
+    <ClCompile Include="src\pipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="device.cpp">
+    <ClCompile Include="src\SwapChain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SwapChain.cpp">
+    <ClCompile Include="src\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="window.hpp">
+    <ClInclude Include="src\app.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app.hpp">
+    <ClInclude Include="src\device.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pipeline.hpp">
+    <ClInclude Include="src\pipeline.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="device.hpp">
+    <ClInclude Include="src\SwapChain.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SwapChain.hpp">
+    <ClInclude Include="src\window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="simple_shader.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="simple_shader.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="simple_shader.frag.spv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="simple_shader.vert.spv">
-      <Filter>Resource Files</Filter>
-    </None>
   </ItemGroup>
 </Project>
